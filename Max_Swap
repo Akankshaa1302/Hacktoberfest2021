@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int maximumSwap(int num) {
+        string numstr = to_string(num);
+        int n = numstr.size();
+        for(int i =0;i<n;i++){
+            int maxnum = numstr[i];
+            int maxindex = i;
+            for(int j = i+1;j<n;j++){
+                if(numstr[j]>=maxnum){
+                    maxnum = numstr[j];
+                    maxindex = j;
+                }
+            }
+            if(maxnum > numstr[i]){
+                swap(numstr[i],numstr[maxindex]);
+                return stoi(numstr);
+            }
+        }
+        return num;
+    }
+};
